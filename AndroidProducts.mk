@@ -16,3 +16,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/omni_G3.mk
+
+COMMON_LUNCH_CHOICES := omni_G3-eng

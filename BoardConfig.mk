@@ -2,7 +2,7 @@ LOCAL_PATH := device/alps/G3
 
 TARGET_BOARD_PLATFORM := mt6735               # From ro.mediatek.platform, but lowercase value
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := G3     # From ro.product.board
+TARGET_BOOTLOADER_BOARD_NAME := k53v1_64_bsp     # From ro.product.board
 
 # These two are for MTK Chipsets only
 BOARD_USES_MTK_HARDWARE := true
