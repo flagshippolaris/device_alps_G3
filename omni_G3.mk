@@ -1,34 +1,27 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+# Release name
+PRODUCT_RELEASE_NAME := G3
 
-# Add this line if your device is 64-bit
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-# Otherwise, If you have 32-bit device, add the below line instead of above line
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk
 
-# Another common config inclusion
-$(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
-
-# If you are building from OmniROM's minimal source, Inherit some common Omni stuff.
+# Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# Replace $$DEVICE$$ with your Device Name's Value.
-# Replace $$BRAND$$ with your Brand's / Manufacturer's Value.
-PRODUCT_COPY_FILES += device/alps/G3/prebuilt/zImage:kernel
-# Fles under $(LOCAL_PATH)/recovery/root/ gets automatically copied into recovery
-# PRODUCT_COPY_FILES += $(LOCAL_PATH)/recovery/root/*:root/*
-
-PRODUCT_DEVICE := G3
-PRODUCT_NAME := omni_G3
+# Device identifier. This must come after all inclusions
 PRODUCT_BRAND := alps
-PRODUCT_MODEL := G3
+PRODUCT_DEVICE := G3
 PRODUCT_MANUFACTURER := alps
+PRODUCT_MODEL := G3
+PRODUCT_NAME := omni_G3
+PRODUCT_BOARD := mt6735
 
-# Forcefully add mtp support (adb is already there)
+# enable stock zip packages flash
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
-# Add fingerprint from Stock ROM build.prop
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    # These lines are from my device. You MUST Replace yours.
-    BUILD_FINGERPRINT="alps/full_k53v1_64_bsp/k53v1_64_bsp:8.1.0/O11019/1736746358:user/release-keys" \
-    PRIVATE_BUILD_DESC="full_k53v1_64_bsp-user 8.1.0 O11019 1736746358 release-keys"
+    ro.treble.enabled=true \
+    persist.sys.usb.config=mtp \
+    persist.service.adb.enable=1 \
+    persist.service.debuggable=1 \
+    ro.secure=1 \
+    ro.adb.secure=0 \
+    ro.allow.mock.location=0
