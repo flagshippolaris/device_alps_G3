@@ -3,7 +3,7 @@
 
 ifneq ($(filter G3,$(TARGET_DEVICE)),)
 
-LOCAL_PATH = devicealpsG3
+LOCAL_PATH = device/alps/G3
 
 include $(call all-makefiles-under,$(LOCAL_DIR))
 
