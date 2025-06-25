@@ -5,6 +5,6 @@ ifneq ($(filter G3,$(TARGET_DEVICE)),)
 
 LOCAL_PATH = devicealpsG3
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(call all-makefiles-under,$(LOCAL_DIR))
 
 endif
