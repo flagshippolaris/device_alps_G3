@@ -4,4 +4,4 @@
 
 LOCAL_PATH := device/alps/G3
 
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/omni_G3.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_G3.mk
