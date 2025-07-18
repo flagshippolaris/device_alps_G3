@@ -1,0 +1,5 @@
+ro.product.brand=alps
+ro.product.name=G3
+ro.product.device=G3
+ro.build.product=k53v1_64_bsp
+ro.treble.enabled=true
